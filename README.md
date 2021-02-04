@@ -1,6 +1,6 @@
 # Environment Ribbons
 
-[![Build Status](https://travis-ci.com/cwarwicker/moodle-tool_ribbons.svg?token=jacumMjfK5457G6qexyD&branch=main)](https://travis-ci.org/cwarwicker/moodle-tool_ribbons)
+[![Build Status](https://travis-ci.com/cwarwicker/moodle-tool_ribbons.svg?token=jacumMjfK5457G6qexyD&branch=main)](https://travis-ci.com/cwarwicker/moodle-tool_ribbons)
 [![Open Issues](https://img.shields.io/github/issues/cwarwicker/moodle-tool_ribbons)](https://github.com/cwarwicker/moodle-tool_ribbons/issues)
 [![License](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
