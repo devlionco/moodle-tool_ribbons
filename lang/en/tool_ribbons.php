@@ -22,10 +22,10 @@
  */
 
 // Capabilities.
-$string['ribbons:config_ribbons'] = 'Configure Environment Ribbons';
+$string['ribbons:config_ribbons'] = 'Configure environment ribbons';
 
 // Errors.
-$string['error:colour'] = 'Invalid Hex colour';
+$string['error:colour'] = 'Invalid hex colour';
 $string['error:link'] = 'Invalid URL';
 $string['error:maxlength'] = 'Data cannot be more than {$a} characters long.';
 $string['error:required'] = 'This field is required';
@@ -39,19 +39,19 @@ $string['delete:sure'] = 'Are you sure you want to delete this <b>{$a}</b>';
 $string['disable'] = 'Disable';
 $string['enable'] = 'Enable';
 $string['nodata'] = 'No data';
-$string['pluginname'] = 'Environment Ribbons';
-$string['ribbon'] = 'Environment Ribbon';
-$string['ribbons'] = 'Environment Ribbons';
-$string['ribbon:colour:bg'] = 'Background Colour';
-$string['ribbon:colour:bg_help'] = 'This must be a Hex code. E.g. #000000';
+$string['pluginname'] = 'Environment ribbons';
+$string['ribbon'] = 'Environment ribbon';
+$string['ribbons'] = 'Environment ribbons';
+$string['ribbon:colour:bg'] = 'Background colour';
+$string['ribbon:colour:bg_help'] = 'This must be a hex code. E.g. #000000';
 $string['ribbon:colour:text'] = 'Text Colour';
-$string['ribbon:colour:text_help'] = 'This must be a Hex code. E.g. #fff';
-$string['ribbon:deleted'] = 'Environment Ribbon deleted';
+$string['ribbon:colour:text_help'] = 'This must be a hex code. E.g. #fff';
+$string['ribbon:deleted'] = 'Environment ribbon deleted';
 $string['ribbon:link'] = 'Hyperlink';
-$string['ribbon:new'] = 'New Environment Ribbon';
+$string['ribbon:new'] = 'New environment ribbon';
 $string['ribbon:position'] = 'Position';
-$string['ribbon:saved'] = 'Environment Ribbon Saved';
+$string['ribbon:saved'] = 'Environment ribbon saved';
 $string['ribbon:type:script_help'] = 'This URL will be opened and the text response passed into the ribbon. it is recommended that the script should not return more than 20 characters, or the ribbon will become difficult to read.<br><br><b>Available Placeholders:</b><br>{www} - This will be converted to the root url of your site.<br>{userid} - This will be converted to the ID of the currently logged in user.';
 $string['ribbon:type:script'] = 'Script URL';
-$string['ribbon:type:static'] = 'Static Text';
+$string['ribbon:type:static'] = 'Static text';
 $string['type'] = 'Type';
