@@ -25,7 +25,7 @@ defined('MOODLE_INTERNAL') || die;
 
 $plugin->component = 'tool_ribbons';
 $plugin->version  = 2021020300;
-$plugin->release = 'v0.1-alpha';
-$plugin->maturity = MATURITY_ALPHA;
+$plugin->release = 'v1.0';
+$plugin->maturity = MATURITY_STABLE;
 $plugin->cron = 0;
 $plugin->requires = 2019052000;
