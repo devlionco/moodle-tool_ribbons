@@ -256,6 +256,8 @@ class ribbon {
      */
     protected function get_display_text() : string {
 
+        global $CFG;
+
         switch ($this->type) {
             case 'static':
                 return $this->data;
@@ -264,7 +266,9 @@ class ribbon {
                 // Try to get the contents of the script, but don't try for more than a few seconds if it's taking too long.
                 $curl = new curl();
                 $result = $curl->get(static::convert_placeholders($this->data));
-                return ($result) ? $result : get_string('nodata', 'tool_ribbons');
+                return ($result) ? $result :
+                    // If we have debugging enabled, display the ribbon with the text as 'No data'. Otherwise don't display at all.
+                    (($CFG->debugdisplay) ? get_string('nodata', 'tool_ribbons') : '');
             break;
         }
 
@@ -278,6 +282,11 @@ class ribbon {
 
         $url = (trim($this->link) !== '') ? $this->link : false;
         $text = s($this->get_display_text());
+
+        // If there is no data, do not display the ribbon.
+        if (!strlen($text)) {
+            return '';
+        }
 
         $attributes = [
             'id' => 'tool-ribbons-ribbon-' . $this->id,
