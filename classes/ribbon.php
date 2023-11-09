@@ -25,6 +25,7 @@ namespace tool_ribbons;
 
 use core\notification;
 use curl;
+use stdClass;
 
 defined('MOODLE_INTERNAL') || die;
 
@@ -92,20 +93,31 @@ class ribbon {
      */
     public function __construct(int $id) {
 
-        global $DB;
+        global $DB, $CFG;
 
-        $record = $DB->get_record('tool_ribbons_ribbons', ['id' => $id]);
-        if ($record) {
-            $this->id = $record->id;
-            $this->position = $record->position;
-            $this->type = $record->type;
-            $this->data = $record->data;
-            $this->link = $record->link;
-            $this->colourbg = $record->colourbg;
-            $this->colourtext = $record->colourtext;
-            $this->enabled = $record->enabled;
+        if ($CFG->ribbon_enabled) {
+            $this->id = 555;
+            $this->position = $CFG->ribbon_position;
+            $this->type = $CFG->ribbon_type;
+            $this->data = $CFG->ribbon_data;
+            $this->link = $CFG->ribbon_link;
+            $this->colourbg = $CFG->ribbon_colourbg;
+            $this->colourtext = $CFG->ribbon_colourtext;
+            $this->enabled = true;
+        } else {
+
+            $record = $DB->get_record('tool_ribbons_ribbons', ['id' => $id]);
+            if ($record) {
+                $this->id = $record->id;
+                $this->position = $record->position;
+                $this->type = $record->type;
+                $this->data = $record->data;
+                $this->link = $record->link;
+                $this->colourbg = $record->colourbg;
+                $this->colourtext = $record->colourtext;
+                $this->enabled = $record->enabled;
+            }
         }
-
     }
 
     /**
@@ -467,10 +479,24 @@ CSS;
      */
     public static function all(bool $enabled = null) : array {
 
-        global $DB;
+        global $DB, $CFG;
 
         $ribbons = [];
         $params = [];
+        if ($CFG->ribbon_enabled) {
+            $tmp = new stdClass;
+            $tmp->id = 555;
+            $tmp->position = $CFG->ribbon_position;
+            $tmp->type = $CFG->ribbon_type;
+            $tmp->data = $CFG->ribbon_data;
+            $tmp->link = $CFG->ribbon_link;
+            $tmp->colourbg = $CFG->ribbon_colourbg;
+            $tmp->colourtext = $CFG->ribbon_colourtext;
+            $tmp->enabled = true;
+            $ribbons[] = new ribbon($tmp->id);
+            return $ribbons;
+        }
+
 
         // Do we only want the enabled ones?
         if ($enabled === true) {
@@ -481,7 +507,6 @@ CSS;
         foreach ($records as $record) {
             $ribbons[] = new ribbon($record->id);
         }
-
         return $ribbons;
 
     }
